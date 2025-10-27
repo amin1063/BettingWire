@@ -1,0 +1,41 @@
+﻿@model SimpleNewsPortal.Models.News
+@{
+    ViewData["Title"] = "Add News";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient text-white" style="background: linear-gradient(90deg, #0d6efd, #6610f2);">
+                    <h4 class="mb-0 text-center">📰 Add Latest News</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label fw-semibold">News Title</label>
+                            <input asp-for="Title" class="form-control" placeholder="Enter news headline" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label fw-semibold">Description</label>
+                            <textarea asp-for="Description" rows="5" class="form-control" placeholder="Write detailed news..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary px-4 shadow-sm">
+                                <i class="bi bi-save me-1"></i> Publish News
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
